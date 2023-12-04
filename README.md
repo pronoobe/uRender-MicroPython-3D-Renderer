@@ -76,7 +76,7 @@ render.add_line(5, 3)
 # 渲染到OLED显示屏上
 # Render to the OLED display
 render.rending(oled, points, line=True, show_index=False)
-
+```
 # 贡献
 欢迎对本项目进行改进！如有建议或发现bug，请提交issue或pull request。
 # Contributions
