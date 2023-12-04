@@ -1,6 +1,6 @@
 # uRender-MicroPython-3D-Renderer
 # micropython 3D图形渲染库
-# micropython 3D Graphics Rendering Library
+
 
 ## 简介
 这个项目是一个为micropython微控制器编写的3D图形渲染库，使用ESP32进行测试。它允许用户在OLED显示屏上渲染简单的3D图形，包括点和线的渲染以及视角的调整。
