@@ -1,45 +1,54 @@
-from ssd1306 import *  # Importing the ssd1306 module
-from machine import I2C, Timer, Pin  # Importing necessary classes from machine module
+from ssd1306 import *
+from machine import I2C, Timer, Pin
 import time
-from uRender import *  # Importing everything from the uRender module
-
+from uRender import *
 from math import sin, cos
 
-# Creating an instance of the SSD1306_I2C class for OLED display
+# Initialize an OLED display using the I2C protocol
 oled = SSD1306_I2C(128, 64, I2C(1))
 
-# Defining a list of 3D points
+# Define a set of 3D points to create a model
 points = [
-    (10, 10, 10),
-    (10, 10, 20),
-    (10, 5, 20),
-    (15, 5, 20),
-    (15, -15, -20),
+    (10, 10, 0), (10, -10, 0), (-10, -10, 0), (-10, 10, 0),
+    (10, 10, 7), (10, -10, 7), (-10, -10, 7), (-10, 10, 7),
+    (0, 0, 12),
 ]
 
-# Initializing the MicroRender class with specific camera position, rotation angles, and screen dimensions
-render = MicroRender(camera_pos=[3, -1, 0],
-                     rotation_angles=[0, 0, 0],
-                     screen_x=128,
-                     screen_y=64)
+# Initialize a renderer for 3D graphics
+render = MicroRender(camera_pos=[3, -1, 0], rotation_angles=[0, 0, 0], screen_x=128, screen_y=64)
 
-# Adding lines between specified points
+# Add lines to define the edges of the 3D model
 render.add_line(1, 2)
-render.add_line(1, 4)
 render.add_line(2, 3)
 render.add_line(3, 4)
-render.add_line(4, 5)
-render.add_line(5, 1)
-render.add_line(5, 2)
-render.add_line(5, 3)
+render.add_line(4, 1)
+render.add_line(1, 5)
+render.add_line(2, 6)
+render.add_line(3, 7)
+render.add_line(4, 8)
+render.add_line(5, 6)
+render.add_line(6, 7)
+render.add_line(7, 8)
+render.add_line(5, 8)
+render.add_line(5, 9)
+render.add_line(6, 9)
+render.add_line(7, 9)
+render.add_line(9, 8)
 
-# Looping through angles to create a rotating effect
-for angle in range(0, 360):
-    # Converting angle to radians for x, y, z directions
-    ang = get_pos_vec(angle//10, angle//10, angle)
-    # Setting the camera's rotation angle
+# Change the camera position for different perspectives
+render.set_camera_pos([15, 15, 15])
+
+# Render the model from various angles
+for angle in range(0, 36):
+    ang = get_pos_vec(angle // 10, angle // 10, angle)
     render.set_camera_angle(ang)
-    # Setting the camera's position
-    render.set_camera_pos([1, 2, 0])
-    # Rendering the points and lines onto the OLED display
-    render.rending(oled, points, line=1, show_index=0)
+    render.rending_center(oled, points, line=1, show_index=0)
+
+# Set a normal vector for rendering
+normal_vec = [0, 1, 1]
+
+# Rotate and render the model for a full 360-degree rotation
+for angle in range(0, 360):
+    rotated_points = rotate_points(points, (0, angle, 0))
+    render.rending_ord(oled, rotated_points, normal_vec, line=1, show_index=0)
+
