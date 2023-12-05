@@ -27,25 +27,25 @@ This project is a 3D graphics rendering library for the micropython microcontrol
 - Offers functionality to set the camera position and rotation angles.
 
 - Allows defining lines between points.
-## 安装要求
-- ESP32微控制器
+## 运行要求
+- MicroPython微控制器（例如ESP32、树莓派pico等）
 - MicroPython固件
 - SSD1306 OLED显示屏
 - 必要的MicroPython库，如`ssd1306`
 ## Requirements
-- ESP32 microcontroller
+- MicroPython microcontroller（like ESP32 RPI PICO etc）
 - MicroPython firmware
 - SSD1306 OLED display
 - Necessary MicroPython libraries, such as `ssd1306`
 
 ## 安装指南
 1. 确保ESP32微控制器已刷入MicroPython固件。
-2. 将本项目的文件下载到ESP32上。
+2. 将本项目的文件下载到单片机上。
 3. 通过MicroPython的包管理器安装所需库。
 4. `ssd1306`模块源自开源项目[stlehmann/micropython-ssd1306](https://github.com/stlehmann/micropython-ssd1306/blob/master/ssd1306.py)，请确保遵循其许可证规定。
 ## Installation Guide
 1. Ensure that the ESP32 microcontroller is loaded with MicroPython firmware.
-2. Download the files of this project to the ESP32.
+2. Download the files of this project to the device.
 3. Install required libraries via MicroPython's package manager.
 4. The `ssd1306` module is sourced from the open-source project [stlehmann/micropython-ssd1306](https://github.com/stlehmann/micropython-ssd1306/blob/master/ssd1306.py), ensure compliance with its license terms.
 
