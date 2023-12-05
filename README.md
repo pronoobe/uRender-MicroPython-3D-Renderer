@@ -11,11 +11,22 @@ This project is a 3D graphics rendering library for the micropython microcontrol
 - **3D点渲染**：在三维空间中定义点，并将它们渲染到二维屏幕上。
 - **线框渲染**：连接三维空间中的点以创建线框图形。
 - **视角控制**：调整相机的位置和角度来查看三维图形。
+- 渲染 3D 点和线条到屏幕。
+- 支持正交和中心投影方式的渲染。
+- 提供设置相机位置和旋转角度的功能。
+- 允许定义点之间的连线。
 ## Features
 - **3D Point Rendering**: Define points in three-dimensional space and render them on a two-dimensional screen.
 - **Wireframe Rendering**: Connect points in three-dimensional space to create wireframe graphics.
 - **Viewpoint Control**: Adjust the camera's position and angle to view 3D graphics.
 
+- Renders 3D points and lines to the screen.
+
+- Supports rendering with orthogonal and central projection methods.
+
+- Offers functionality to set the camera position and rotation angles.
+
+- Allows defining lines between points.
 ## 安装要求
 - ESP32微控制器
 - MicroPython固件
