@@ -1,5 +1,5 @@
-# uRender-MicroPython-3D-Renderer
-# micropython 3D图形渲染库
+# uRender-A MicroPython 3D Renderer
+# uRender-micropython 3D图形渲染库
 
 
 ## 简介
